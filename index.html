@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -98,7 +97,15 @@ if(sessionStorage.warningPage != "1"){
         <p>Home </p>
 
 	<div id='DoorValueDiv'></div>
-<input type='text' id='DoorValue'>
+
+ <div class="btn-group">
+ 	<button class="btn">Left</button>
+ 	<button class="btn">Middle</button>
+ 	<button class="btn">Right</button>
+ </div>
+
+
+
 		<script>
 		var myDataRef = new Firebase('https://garage-door-detector.firebaseIO.com/');
 $('#DoorValue').keypress(function (e) {
@@ -107,13 +114,16 @@ $('#DoorValue').keypress(function (e) {
 		myDataRef.set({DoorValue: DoorValue});
 		}
  		});
-	/*	myDataRef.on('child_changed', function(snapshot) {
+		myDataRef.on('child_changed', function(snapshot) 
+		{
 		var DoorValueVal = snapshot.val();
 		displayDoorValue(DoorValueVal.DoorValue);
-});
-	function displayDoorValue(DoorValue) {
-		$('<div/>').text(DoorValue).appendTo($('#DoorValueDiv'));
-};*/
+		});
+		
+		function displayDoorValue(DoorValue) 
+		{
+			$('<div/>').text(DoorValue).appendTo($('#DoorValueDiv'));
+		};
 	</script>		
       </div>
 
